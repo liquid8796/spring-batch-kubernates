@@ -33,8 +33,6 @@ public class SpringBatchKubernatesApplication {
 
 	@Bean
 	public FlatFileItemReader<Person> reader() {
-		System.out.println(">>>>>>>>>>>>" + fileName);
-
 		return new FlatFileItemReaderBuilder<Person>()
 				.name("personItemReader")
 				.resource(new ClassPathResource(fileName))
