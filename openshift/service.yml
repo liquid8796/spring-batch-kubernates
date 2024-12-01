@@ -4,9 +4,41 @@ metadata:
   name: batch-job
 spec:
   template:
+    metadata:
+      labels:
+        job-name: batch-job
     spec:
       restartPolicy: OnFailure
       containers:
         - name: batch-job-container
           image: liquid8796/spring-batch-kubernates
           imagePullPolicy: IfNotPresent
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: batch-job-service
+spec:
+  selector:
+    job-name: batch-job
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+---
+
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: batch-job-route
+spec:
+  to:
+    kind: Service
+    name: batch-job-service
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge

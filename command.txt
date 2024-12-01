@@ -1,7 +1,11 @@
-### Mysql
-git clone git@github.com:benas/spring-batch-lab.git
-cd blog/spring-batch-kubernetes
-docker-compose -f src/docker/docker-compose.yml up
-
 ### Compile the job and create a docker image for it by using Spring Boot's maven plugin
 mvn compile jib:dockerBuild
+
+### Deploy to openshift
+crc delete -f
+crc cleanup
+crc setup
+crc start --log-level debug
+
+oc login 
+oc create -f .\service.yml
