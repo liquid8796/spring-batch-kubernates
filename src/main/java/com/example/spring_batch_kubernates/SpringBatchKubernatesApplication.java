@@ -28,7 +28,7 @@ public class SpringBatchKubernatesApplication {
 		SpringApplication.run(SpringBatchKubernatesApplication.class, args);
 	}
 
-	@Value("${nam.fileName}")
+	@Value("${batch.fileName}")
 	private String fileName;
 
 	@Bean
