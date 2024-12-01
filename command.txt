@@ -5,7 +5,9 @@ mvn compile jib:dockerBuild
 crc delete -f
 crc cleanup
 crc setup
-crc start --log-level debug
+crc start --memory <number-in-mib>
 
-oc login 
+oc login -u developer/kubeadmin https://api.crc.testing:6443
+oc new-project batch-processing
+oc project batch-processing
 oc create -f .\service.yml
