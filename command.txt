@@ -1,4 +1,4 @@
-### Compile the job and create a docker image for it by using Spring Boot's maven plugin
+### Compile the job and create a docker image for it by using google jib plugin
 mvn compile jib:dockerBuild
 
 ### Deploy to openshift

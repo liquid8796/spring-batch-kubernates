@@ -13,6 +13,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-batch-kubernates</name>
 	<description>Demo project for Spring Batch on Kubernates</description>
+	<packaging>jar</packaging>
 	<url/>
 	<licenses>
 		<license/>
@@ -62,25 +63,18 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-<<<<<<< HEAD
 
-=======
->>>>>>> 9dffeb0b364948641d3d0d3d0fe213540867eb7a
 			<plugin>
 				<groupId>com.google.cloud.tools</groupId>
 				<artifactId>jib-maven-plugin</artifactId>
 				<version>3.4.2</version>
 				<configuration>
 					<to>
-<<<<<<< HEAD
 						<image>docker.io/liquid8796/${project.artifactId}</image>
 						<auth>
 							<username>${REGISTRY_USERNAME}</username>
 							<password>${REGISTRY_PASSWORD}</password>
 						</auth>
-=======
-						<image>liquid8796/${project.artifactId}</image>
->>>>>>> 9dffeb0b364948641d3d0d3d0fe213540867eb7a
 					</to>
 				</configuration>
 			</plugin>
