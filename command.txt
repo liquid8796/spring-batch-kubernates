@@ -4,5 +4,4 @@ cd blog/spring-batch-kubernetes
 docker-compose -f src/docker/docker-compose.yml up
 
 ### Package the job and create a docker image for it by using Spring Boot's maven plugin
-mvn package
-mvn spring-boot:build-image -Dspring-boot.build-image.imageName=liquid8796/batch-kubernates-job
+mvn compile jib:build -DREGISTRY_USERNAME=liquid8796 -DREGISTRY_PASSWORD=Tranlehanam1996@
