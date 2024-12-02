@@ -2,4 +2,4 @@
 crc delete -f
 crc cleanup
 crc setup
-crc start --memory <number-in-mib>
+crc start
