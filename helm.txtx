@@ -1,6 +1,4 @@
-helm install scdf bitnami/spring-cloud-dataflow \
-  --namespace scdf \
-  --set global.imagePullPolicy=Always \
+helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.imagePullPolicy=Always \
   --set server.service.type=ClusterIP \
   --set rabbitmq.enabled=true \
   --set kafka.enabled=false \
