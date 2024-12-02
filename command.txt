@@ -1,10 +1,6 @@
 ### Compile the job and create a docker image for it by using Spring Boot's maven plugin
 mvn compile jib:dockerBuild
 
-<<<<<<< HEAD
-### Package the job and create a docker image for it by using Spring Boot's maven plugin
-mvn compile jib:build -DREGISTRY_USERNAME=liquid8796 -DREGISTRY_PASSWORD=Tranlehanam1996@
-=======
 ### Deploy to openshift
 crc delete -f
 crc cleanup
@@ -15,4 +11,3 @@ oc login -u developer/kubeadmin https://api.crc.testing:6443
 oc new-project batch-processing
 oc project batch-processing
 oc create -f .\service.yml
->>>>>>> 9dffeb0b364948641d3d0d3d0fe213540867eb7a
