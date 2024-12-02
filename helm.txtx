@@ -1,3 +1,3 @@
 helm install spring-cloud-dataflow-release oci://registry-1.docker.io/bitnamicharts/spring-cloud-dataflow
 
-kubectl port-forward --namespace spring-cloud-data-flow svc/spring-cloud-dataflow-release-server ${SERVICE_PORT}:${SERVICE_PORT}
+kubectl port-forward --namespace spring-cloud-data-flow svc/spring-cloud-dataflow-release-server 9393:9393
