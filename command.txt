@@ -4,6 +4,6 @@ mvn compile jib:dockerBuild
 
 
 oc login -u developer https://api.crc.testing:6443
-oc new-project batch-processing
+oc new-project spring-cloud-data-flow
 oc project batch-processing
 oc create -f .\service.yml
