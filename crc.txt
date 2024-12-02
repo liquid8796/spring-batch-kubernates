@@ -1,4 +1,4 @@
-### Deploy to openshift
+### install Openshift local
 crc delete -f
 crc cleanup
 crc setup
