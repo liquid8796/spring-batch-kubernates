@@ -4,6 +4,6 @@ helm install scdf bitnami/spring-cloud-dataflow \
   --set server.service.type=ClusterIP \
   --set rabbitmq.enabled=true \
   --set kafka.enabled=false \
-  --set database.type=postgresql
+  --set database.type=mariadb
 
 kubectl port-forward --namespace spring-cloud-data-flow svc/spring-cloud-dataflow-release-server 9393:9393
