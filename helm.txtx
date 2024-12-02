@@ -1,9 +1,5 @@
 helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.imagePullPolicy=Always --set server.service.type=ClusterIP --set rabbitmq.enabled=true --set kafka.enabled=false --set database.type=postgresql
 
-helm upgrade scdf bitnami/spring-cloud-dataflow -n scdf \
-  --set mariadb.primary.resources.requests.cpu=100m \
-  --set mariadb.primary.resources.requests.memory=256Mi \
-  --set rabbitmq.resources.requests.cpu=100m \
-  --set rabbitmq.resources.requests.memory=256Mi
+helm upgrade scdf bitnami/spring-cloud-dataflow -n scdf -set mariadb.primary.resources.requests.cpu=100m --set mariadb.primary.resources.requests.memory=256Mi --set rabbitmq.resources.requests.cpu=100m --set rabbitmq.resources.requests.memory=256Mi
 
 kubectl port-forward --namespace spring-cloud-data-flow svc/spring-cloud-dataflow-release-server 9393:9393
