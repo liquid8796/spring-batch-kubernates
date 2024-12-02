@@ -1,7 +1,3 @@
-helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.imagePullPolicy=Always \
-  --set server.service.type=ClusterIP \
-  --set rabbitmq.enabled=true \
-  --set kafka.enabled=false \
-  --set database.type=mariadb
+helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.imagePullPolicy=Always --set server.service.type=ClusterIP --set rabbitmq.enabled=true --set kafka.enabled=false --set database.type=mariadb
 
 kubectl port-forward --namespace spring-cloud-data-flow svc/spring-cloud-dataflow-release-server 9393:9393
