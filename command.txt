@@ -3,7 +3,7 @@ mvn compile jib:dockerBuild
 
 
 
-oc login -u developer/kubeadmin https://api.crc.testing:6443
+oc login -u developer https://api.crc.testing:6443
 oc new-project batch-processing
 oc project batch-processing
 oc create -f .\service.yml
