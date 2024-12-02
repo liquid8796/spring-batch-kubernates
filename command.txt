@@ -1,11 +1,7 @@
 ### Compile the job and create a docker image for it by using google jib plugin
 mvn compile jib:dockerBuild
 
-### Deploy to openshift
-crc delete -f
-crc cleanup
-crc setup
-crc start --memory <number-in-mib>
+
 
 oc login -u developer/kubeadmin https://api.crc.testing:6443
 oc new-project batch-processing
