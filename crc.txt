@@ -3,3 +3,5 @@ crc delete -f
 crc cleanup
 crc setup
 crc start
+
+crc console --credentials
