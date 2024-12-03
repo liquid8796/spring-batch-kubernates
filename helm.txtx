@@ -1,5 +1,4 @@
-helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.imagePullPolicy=Always --set server.service.type=ClusterIP --set rabbitmq.enabled=true --set kafka.enabled=false --set database.type=postgresql --set server.resources.requests.cpu=100m --set server.resources.requests.memory=256Mi --set skipper.resources.requests.cpu=100m --set skipper.resources.requests.memory=256Mi
-
+helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.imagePullPolicy=Always --set server.service.type=ClusterIP --set rabbitmq.enabled=true --set kafka.enabled=false --set database.type=postgresql
 
 helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.imagePullPolicy=Always --set server.service.type=ClusterIP --set rabbitmq.enabled=true --set kafka.enabled=false --set database.type=postgresql --set server.resources.requests.cpu=100m --set server.resources.requests.memory=256Mi --set skipper.resources.requests.cpu=100m --set skipper.resources.requests.memory=256Mi
 
