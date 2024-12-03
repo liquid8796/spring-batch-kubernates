@@ -5,5 +5,5 @@ crc setup
 crc start
 
 crc console --credentials
-oc login -u developer https://api.crc.testing:6443
+oc login -u developer -p developer https://api.crc.testing:6443
 oc login -u kubeadmin -p G4oDJ-LHJAh-serso-hGsqY https://api.crc.testing:6443
