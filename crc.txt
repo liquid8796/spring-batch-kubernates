@@ -5,3 +5,4 @@ crc setup
 crc start
 
 crc console --credentials
+oc login -u developer https://api.crc.testing:6443
