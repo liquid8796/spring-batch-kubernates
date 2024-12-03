@@ -4,3 +4,4 @@ helm install scdf bitnami/spring-cloud-dataflow --namespace scdf --set global.im
 
 
 kubectl port-forward --namespace spring-cloud-data-flow svc/spring-cloud-dataflow-release-server 9393:9393
+
