@@ -118,6 +118,17 @@ spec:
           lifecycle: {{- include "common.tplvalues.render" (dict "value" .Values.server.lifecycleHooks "context" $) | nindent 12 }}
           {{- end }}
           env:
+            - name: SPRING_JPA_OPEN-IN-VIEW
+              value: "false"
+            - name: SPRING_DATASOURCE_HIRAKI_MAXIMUM-POOL-SIZE
+              value: "10"
+            - name: SPRING_DATASOURCE_HIRAKI_CONNECTION-TIMEOUT
+              value: "30000"
+            - name: SPRING_DATASOURCE_HIRAKI_IDLE-TIMEOUT
+              value: "600000"
+            - name: SPRING_DATASOURCE_HIRAKI_MAX-LIFETIME
+              value: "1800000"
+              
             - name: BITNAMI_DEBUG
               value: {{ ternary "true" "false" .Values.server.image.debug | quote }}
             - name: SERVER_PORT

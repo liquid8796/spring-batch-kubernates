@@ -300,16 +300,18 @@ server:
   ## @param server.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if server.resources is set (server.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "small"
+  resourcesPreset: "large"
   ## @param server.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   resources:
-    requests:
-        cpu: 100m
-        memory: 200Mi
     limits:
-        cpu: 200m
+        cpu: 1500m
         memory: 300Mi
+    requests:
+        cpu: 1000m
+        memory: 200Mi
+    
+  ## resources: {}
   ##
   ## Dataflow Server pods' startup probes. Evaluated as a template.
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
@@ -886,16 +888,17 @@ skipper:
   ## @param skipper.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if skipper.resources is set (skipper.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "small"
+  resourcesPreset: "medium"
   ## @param skipper.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   resources:
-    requests:
-        cpu: 100m
-        memory: 50Mi
     limits:
         cpu: 200m
         memory: 100Mi
+    requests:
+        cpu: 100m
+        memory: 50Mi
+    
   ##
   ## Configure extra options for startup probe
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
@@ -1155,16 +1158,16 @@ deployer:
   ## @param deployer.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if deployer.resources is set (deployer.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "small"
+  resourcesPreset: "large"
   ## @param deployer.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   resources:
     requests:
-        cpu: 100m
-        memory: 50Mi
+        cpu: 400m
+        memory: 200Mi
     limits:
-        cpu: 200m
-        memory: 100Mi
+        cpu: 800m
+        memory: 400Mi
   ##
   ## Configure extra options for readiness probe
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes
@@ -1206,8 +1209,8 @@ deployer:
   ## @param deployer.podSecurityContext.runAsUser Set Dataflow Streams container's Security Context runAsUser
   ## @param deployer.podSecurityContext.fsGroup Set Dataflow Streams container's Security Context fsGroup
   podSecurityContext:
-    enabled: true
-    runAsUser: 1001
+    enabled: false
+    runAsUser: 65534
     fsGroup: 1001
   ## @param deployer.imagePullSecrets Streaming applications imagePullSecrets
   ##
@@ -1289,7 +1292,7 @@ metrics:
   ## @param metrics.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if metrics.resources is set (metrics.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "nano"
+  resourcesPreset: "small"
   ## @param metrics.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   ## resources:
@@ -1784,16 +1787,17 @@ waitForBackends:
   ## @param waitForBackends.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, micro, small, medium, large, xlarge, 2xlarge). This is ignored if waitForBackends.resources is set (waitForBackends.resources is recommended for production).
   ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
   ##
-  resourcesPreset: "nano"
+  resourcesPreset: "large"
   ## @param waitForBackends.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
   ## Example:
   resources:
-    requests:
-        cpu: 100m
-        memory: 50Mi
     limits:
-        cpu: 200m
-        memory: 100Mi
+        cpu: 1000m
+        memory: 400Mi
+    requests:
+        cpu: 800m
+        memory: 300Mi
+    
   ##
 ## @section Database parameters
 
@@ -1827,18 +1831,18 @@ mariadb:
     ## @param mariadb.auth.rootPassword Password for the MariaDB `root` user
     ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mariadb#setting-the-root-password-on-first-run
     ##
-    rootPassword: ""
+    rootPassword: "dataflow"
     ## @param mariadb.auth.username Username of new user to create
     ## ref: https://github.com/bitnami/containers/blob/main/bitnami/mariadb/README.md#creating-a-database-on-first-run
     ##
-    username: dataflow
+    username: "dataflow"
     ## @param mariadb.auth.password Password for the new user
     ##
-    password: dataflow
+    password: "dataflow"
     ## @param mariadb.auth.database Database name to create
     ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mariadb#creating-a-database-on-first-run
     ##
-    database: dataflow
+    database: "dataflow"
     ## @param mariadb.auth.forcePassword Force users to specify required passwords in the database
     ##
     forcePassword: false
@@ -1866,18 +1870,19 @@ mariadb:
     ## @param mariadb.primary.resourcesPreset Set container resources according to one common preset (allowed values: none, nano, small, medium, large, xlarge, 2xlarge). This is ignored if primary.resources is set (primary.resources is recommended for production).
     ## More information: https://github.com/bitnami/charts/blob/main/bitnami/common/templates/_resources.tpl#L15
     ##
-    resourcesPreset: "micro"
+    resourcesPreset: "large"
     ## @param mariadb.primary.resources Set container requests and limits for different resources like CPU or memory (essential for production workloads)
     ## Example:
     resources:
-        requests:
-            cpu: 250m
-            ephemeral-storage: 50Mi
-            memory: 180Mi
         limits:
-            cpu: 375m
+            cpu: 600m
             ephemeral-storage: 2Gi
+            memory: 300Mi
+        requests:
+            cpu: 400m
+            ephemeral-storage: 50Mi
             memory: 200Mi
+        
     #resources: {}
     ##
 ## Flyway Configuration
